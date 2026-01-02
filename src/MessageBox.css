@@ -1,0 +1,72 @@
+
+.holdButtons {
+    padding: 10px;
+    background-color: transparent;
+    justify-content: space-evenly;
+    display: flex;
+
+}
+
+.button-disabled {
+    /* background-color: #AA336A; */
+    transition: opacity .5s;
+    opacity: .7;
+    cursor: not-allowed;
+}
+
+.button-enabled {
+    transition: opacity .5s;
+    opacity: 1;
+
+    background-color: pink;
+    color: black;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #AA336A;
+    border-color: #AA336A;
+    color: white;
+}
+
+.message-box {
+    width: 400px;
+    max-height: 400px;
+    min-height: 200px;
+    background-color: pink;
+    align-content: center;
+    justify-content: center;
+    border-radius: 15px;
+    text-align: left;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    touch-action: pan-y;
+    
+    
+  }
+
+@media (max-width: 480px) {
+    .message-box { 
+        width: auto;
+    }
+}
+
+.message-block {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.date-header {
+    margin:0;
+    text-align: left;
+    background-color: pink;
+    border-radius: 15px;
+    padding-left: 10px;
+    width: max-content;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    
+}
