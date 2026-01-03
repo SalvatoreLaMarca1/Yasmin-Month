@@ -3,107 +3,40 @@
   margin: 0 auto;
   text-align: center;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-
-
-
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-
-
-
 .hold-all {
   margin:auto;
-  justify-content: center;
+  justify-content: top;
   align-content: center;
   display: flex;
   flex-direction: column;
   width: auto;
   text-align: center;
+  height: 550px;
 
-  background-image: url('assets/topRight.png');
-  background-size: 300px;
+  background-image: url('assets/flowerFrame.jpg');
+  /* background-size: 300px; */
   background-position: center;
+  background-size: contain;
+
+  background-color: green;
 
   border-radius: 15px;
-/* 
+
   padding-left: 100px;
-  padding-right: 100px; */
+  padding-right: 100px;
   padding-top: 150px;
   padding-bottom: 150px;
   box-shadow: 0 0 20px #AA336A; /* Adjust values as needed */
 }
 
-@media (max-width: 480px) {
-  .hold-all {
-    /* margin:auto; */
-    justify-content: center;
-    align-content: center;
-    display: flex;
-    flex-direction: column;
-    width: auto;
-    text-align: center;
-    padding: 20px;
 
-    margin: 10px;
-
-    background-image: url('assets/topRight.png');
-    background-size: 250px;
-    background-position: center;
-
-    border-radius: 15px;
-    box-shadow: 0 0 20px #AA336A; /* Adjust values as needed */
-  }
-
-  button {
-    font-size: small;
-  }
-
-  h1 {
-    font-size: 22px;
-  }
-}
 
 h1 {
   color: black;
-  font-size: 30px;
-  background-color: pink;
+  font-size: 25px;
   border-radius: 15px;
+  background-color: rgba(253, 192, 204);
+  border-radius: -15px;
   padding-top: 8px;
   text-align: left;
   margin-bottom: 10px;
@@ -129,4 +62,169 @@ body {
   font-family: 'Courier New', monospace;
   font-size: 15px;
   /* font-family: 'Dongle';font-size: 22px; */
+}
+
+html {
+  height:100%;
+}
+
+body {
+  margin:0;
+}
+
+.bg {
+  animation:slide 5s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, rgb(251, 170, 240) 50%, rgb(255, 127, 223) 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:4s;
+}
+
+.bg3 {
+  animation-duration:5s;
+}
+
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+    transform: rotate(90%);
+  }
+}
+
+
+/* Message Box */
+
+
+.holdButtons {
+  padding: 10px;
+  background-color: transparent;
+  justify-content: space-evenly;
+  display: flex;
+  margin-top: auto;
+}
+
+.button-disabled {
+  /* background-color: #AA336A; */
+  transition: opacity .5s;
+  opacity: .7;
+  cursor: not-allowed;
+}
+
+.button-enabled {
+  transition: opacity .5s;
+  opacity: 1;
+
+  background-color: pink;
+  color: black;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #AA336A;
+  border-color: #AA336A;
+  color: white;
+}
+
+.message-box {
+  width: 400px;
+  max-height: 300px;
+  min-height: 200px;
+  background-color: pink;
+  align-content: center;
+  justify-content: center;
+  border-radius: 15px;
+  text-align: left;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  touch-action: pan-y;
+
+}
+
+.message-box-container {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.message-block {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.date-header {
+  margin:0;
+  text-align: left;
+  background-color: pink;
+  border-radius: 15px;
+  padding-left: 10px;
+  width: max-content;
+  padding-right: 10px;
+  margin-bottom: 10px;
+  
+}
+
+
+
+@media (max-width: 480px) {
+  .hold-all {
+    justify-content: top;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    width: 325px;
+
+
+    background-image: url('assets/flowerFrame.jpg');
+    background-size: cover;
+  
+    
+    background-position: center;
+
+    border-radius: 15px;
+    box-shadow: 0 0 20px #AA336A; /* Adjust values as needed */
+  }
+
+  button {
+    font-size: small;
+  }
+  .message-box { 
+    width: auto;
+    font-size: small;
+    min-height: 10px;
+  }
+
+  .message-box-container {
+    width: 270px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .date-header {
+    font-size: 15px;
+    padding-top: 6px;
+  }
+  h1 {
+    margin-top: 50px;
+    font-size: 20px;
+    padding-bottom: 5px;
+  }
 }

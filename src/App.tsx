@@ -49,7 +49,7 @@ function App() {
       if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) return;
 
       // Block swipe at edges
-      if (e.deltaX < -SWIPE_THRESHOLD && currentIndex >= messages.length - 1) {
+      if (e.deltaX < -SWIPE_THRESHOLD && currentIndex >= messages.length-1) {
         setTransition('transform 0.2s ease');
         setOffsetX(0);
         return;
@@ -106,22 +106,29 @@ function App() {
   });
 
   return (
-    <div
-      {...handlers}
-      style={{
-        transform: `translateX(${offsetX}px)`,
-        transition,
-        touchAction: 'pan-y',
-        opacity: opacity
-      }}
-      className="hold-all"
-    >
-      <h1>Yasmin Month 2026</h1>
-      <MessageBox
-        messages={messages}
-        currentIndex={currentIndex}
-        setIndex={setCurrentIndex}
-      />
+
+    <div>
+      <div className="bg"></div>
+      <div className="bg bg2"></div>
+      <div className="bg bg3"></div>
+        <div className="content">
+          <div
+          {...handlers}
+          style={{
+            transform: `translateX(${offsetX}px)`,
+            transition,
+            touchAction: 'pan-y',
+            opacity: opacity
+          }}
+          className="hold-all"
+        >
+          <MessageBox
+            messages={messages}
+            currentIndex={currentIndex}
+            setIndex={setCurrentIndex}
+          />
+        </div>
+      </div>
     </div>
   );
 }

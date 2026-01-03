@@ -33,7 +33,7 @@ button:hover {
     width: 400px;
     max-height: 400px;
     min-height: 200px;
-    background-color: pink;
+    background-color: green;
     align-content: center;
     justify-content: center;
     border-radius: 15px;
@@ -46,12 +46,6 @@ button:hover {
     
     
   }
-
-@media (max-width: 480px) {
-    .message-box { 
-        width: auto;
-    }
-}
 
 .message-block {
     display: flex;

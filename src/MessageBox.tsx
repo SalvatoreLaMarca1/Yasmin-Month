@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import './MessageBox.css';
+import './App.css'
 
 interface Message {
   id: string;
@@ -44,11 +44,14 @@ export default function MessageBox({ messages, currentIndex, setIndex }: Props) 
   };
 
   const nextMessage = () => {
-    if (currentIndex < messages.length - 1) setIndex(currentIndex + 1);
+    if (currentIndex < messages.length) setIndex(currentIndex + 1);
   };
 
   return (
     <div className="message-box-container">
+      <div className='flag'>
+        <h1>Yasmin Month 2026</h1>
+      </div>
       <h3 className='date-header' ref={dateRef}></h3>
       <div className="message-block">
         <div className="message-box">
@@ -59,7 +62,8 @@ export default function MessageBox({ messages, currentIndex, setIndex }: Props) 
             className="scrollable-text"
           ></p>
         </div>
-        <div className="holdButtons">
+      </div>
+      <div className="holdButtons">
           <button
             onTouchStartCapture={(e) => e.stopPropagation()}
             onMouseDownCapture={(e) => e.stopPropagation()}
@@ -79,7 +83,6 @@ export default function MessageBox({ messages, currentIndex, setIndex }: Props) 
             Next Day
           </button>
         </div>
-      </div>
     </div>
   );
 }
