@@ -62,7 +62,7 @@ body {
   font-family: 'Courier New', monospace;
   font-size: 15px;
   /* font-family: 'Dongle';font-size: 22px; */
-  background-image: linear-gradient(to left, pink, white);
+  background-image: linear-gradient(to top left, pink, rgb(254, 239, 241));
 }
 
 html {
@@ -202,7 +202,6 @@ button:hover {
     background-position: center;
 
     border-radius: 15px;
-    box-shadow: 0 0 20px #AA336A; /* Adjust values as needed */
   }
 
   button {
@@ -212,6 +211,7 @@ button:hover {
     width: auto;
     font-size: small;
     min-height: 10px;
+    max-height: 300px;
   }
 
   .message-box-container {
