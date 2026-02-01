@@ -25,6 +25,7 @@ function App() {
   useEffect(() => {
     const fetchMessages = async () => {
       const snapshot = await getDocs(collection(db, '2026'));
+    
       const fetched: Message[] = snapshot.docs.map(doc => {
         const data = doc.data();
         return {
@@ -33,9 +34,33 @@ function App() {
           date: data.date.toDate(),
         };
       });
+    
+      // sort by date ascending
+      fetched.sort((a, b) => a.date.getTime() - b.date.getTime());
+    
       setMessages(fetched);
-      setCurrentIndex(fetched.length > 0 ? fetched.length - 1 : 0); // default to latest
+    
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+    
+      let startIndex = 0;
+      let smallestDiff = Infinity;
+    
+      fetched.forEach((msg, index) => {
+        const msgDate = new Date(msg.date);
+        msgDate.setHours(0, 0, 0, 0);
+    
+        const diff = today.getTime() - msgDate.getTime();
+    
+        if (diff >= 0 && diff < smallestDiff) {
+          smallestDiff = diff;
+          startIndex = index;
+        }
+      });
+    
+      setCurrentIndex(startIndex);
     };
+    
     fetchMessages();
   }, []);
 

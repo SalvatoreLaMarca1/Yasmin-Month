@@ -19,15 +19,28 @@ export default function MessageBox({ messages, currentIndex, setIndex }: Props) 
 
   // Update displayed message
   useEffect(() => {
+    console.log(messages)
+
     if (!messages[currentIndex]) return;
 
     const today = new Date();
+    today.setHours(0, 0, 0, 0);
 
-    if (messages[currentIndex].date > today) {
-      if (messageRef.current) messageRef.current.textContent = 'You have to wait for tomorrow';
-      if (dateRef.current) dateRef.current.textContent = 'Till Next Time';
+    const messageDate = new Date(messages[currentIndex].date);
+    messageDate.setHours(0, 0, 0, 0);
+
+        console.log(new Date(), messageDate)
+
+    if (messageDate > today) {
+      if (messageRef.current)
+        messageRef.current.textContent = 'You have to wait for tomorrow';
+
+      if (dateRef.current)
+        dateRef.current.textContent = 'Till Next Time';
+
       return;
     }
+
 
     if (messageRef.current) messageRef.current.textContent = messages[currentIndex].message;
     if (dateRef.current)
